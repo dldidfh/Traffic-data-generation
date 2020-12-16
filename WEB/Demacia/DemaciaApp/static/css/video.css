@@ -1,0 +1,26 @@
+/* 숨기려는 버튼을 골라서 쓰자 */ 
+
+/* 전체화면 버튼 */ 
+video::-webkit-media-controls-fullscreen-button {display:none} 
+
+/* 일시정지, 재생 버튼 */ 
+video::-webkit-media-controls-play-button {display:none} 
+
+/* 재생 슬라이드..? */ 
+video::-webkit-media-controls-timeline {display:none} 
+
+/* 현재 진행 시간 */ 
+video::-webkit-media-controls-current-time-display{display:none} 
+
+/* 전체 시간 */ 
+video::-webkit-media-controls-time-remaining-display {display:none} 
+
+/* 음소거 버튼 */ 
+video::-webkit-media-controls-mute-button {display:none} 
+
+/* 볼륨 조절 슬라이드 */ 
+video::-webkit-media-controls-volume-slider {display:none} 
+/* 괄호에 display: none !important; 를 추가하면된다. 
+예 ) 전체화면 전환 버튼을 숨긴다. 
+/* 다만 더블클릭으로 전체화면이 되는 기능등은 그대로고 단지 버튼만 없앤다. */ 
+/* video::-webkit-media-controls-fullscreen-button { display: none !important; } */

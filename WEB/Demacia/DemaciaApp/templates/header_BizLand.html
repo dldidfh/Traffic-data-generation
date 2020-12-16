@@ -1,0 +1,50 @@
+
+  <!-- ======= Top Bar ======= -->
+  <div id="topbar" class="d-none d-lg-flex align-items-center fixed-top">
+    <div class="container d-flex">
+      <div class="contact-info mr-auto">
+        <i class="icofont-envelope"></i> <a href="mailto:contact@example.com">Demacia@demacia.co.kr</a>
+        <i class="icofont-phone"></i> +82-010-0000-0000
+      </div>
+      <div class="social-links">
+        <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
+        <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
+        <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
+        <a href="#" class="skype"><i class="icofont-skype"></i></a>
+        <a href="#" class="linkedin"><i class="icofont-linkedin"></i></i></a>
+      </div>
+    </div>
+  </div>
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo mr-auto"><a href="/">Demacia<span>.</span></a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo mr-auto"><img src="../static/assets/img/logo.png" alt=""></a>-->
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          {% if request.session.user_id != 'demacia' %}
+          <li><a href="/">Home</a></li>
+          <li><a href="/traffic_volume_research">교통정보</a></li>
+          <li><a href="/video_analysis">교통분석 의뢰</a></li>
+          <li><a href="/request_list">요청 리스트</a></li>
+          <!-- <li><a href="#contact">Contact</a></li> -->
+          {% endif %}
+          {% if request.session.user_id == 'demacia' %}
+          <li><a href="/admin_home">HOME</a></li>
+          <li><a href="/admin_video_list">요청 리스트</a></li>
+          {% endif %}
+          {% if request.session.user_id %}
+          <li><a href="/mypage">마이페이지</a></li>
+          <li><a href="/logout">로그아웃</a></li>
+          {% else %}
+          <li><a href="/login">로그인</a></li>
+          <li><a href="/user_regist">회원가입</a></li>
+          {% endif %}
+        </ul>
+      </nav><!-- .nav-menu -->
+
+    </div>
+  </header><!-- End Header -->

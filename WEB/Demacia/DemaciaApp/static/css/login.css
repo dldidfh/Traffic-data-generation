@@ -1,0 +1,74 @@
+#container{
+    font-family: "Poppins", sans-serif;
+}
+.input_area{
+    text-align: center;
+}
+input[type="text"]{
+    width: 50%;
+    height: 100%;
+    padding: 15px;
+    border-radius: 10px 10px 10px 10px;
+    animation-delay: 0.6s;
+    display: inline;
+}
+input[type="password"]{
+    width: 50%;
+    height: 100%;
+    padding: 15px;
+    border-radius: 10px 10px 10px 10px;
+    animation-delay: 0.6s;
+    display: inline;
+}
+#login_title{
+    text-align: center;
+    padding-bottom: 20px;
+}
+.input_btn_area{
+    text-align:center;
+}
+#input_btn{
+    width:50%;
+    font-size:20px;
+    -webkit-transition: background 1s;
+    transition: background 1s;
+    font-weight: bold;
+}
+#input_btn:hover{
+    background: #56baed;
+    border: 1px solid #56baed;
+}
+.input_check_area{
+    margin-left: 27%;
+}
+input[type="checkbox"] {
+    display:none;
+}
+input[type="checkbox"] + label span {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin: -2px 10px 0 0;
+    vertical-align: middle;
+    background: url("../img/checkbox.svg") left top no-repeat;
+    cursor: auto;
+    background-size: cover;
+}
+input[type="checkbox"]:checked + label span {
+    background:url("../img/checkbox.svg")  -26px top no-repeat;
+    background-size: cover;
+}
+#panel_area{
+    /* outline: auto; */
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+#panel_col_area{
+    height:133%;
+    box-shadow: 0 0 4px lightskyblue;
+    border-radius: 10px 10px 10px 10px;
+    background-color: aliceblue;
+}
+h2{
+    font-weight: bold;
+}

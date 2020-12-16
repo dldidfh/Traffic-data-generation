@@ -1,0 +1,83 @@
+#container{
+    font-family: "Poppins", sans-serif;
+}
+.content-area{
+    background-color: #F7FAF8;
+    margin: 10% 0px 10% 0px;
+    padding: 3% 20px 10% 20px;
+}
+.user-content{
+    background-color: white;
+    margin: 0 auto;
+    height: 180px;
+    -webkit-box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15)!important;
+    box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15)!important;
+    border-radius: 5px 5px 5px 5px;
+}
+.upload-content{
+    background-color: white;
+    margin: 0 auto;
+    height: 180px;
+    -webkit-box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15)!important;
+    box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15)!important;
+    border-radius: 5px 5px 5px 5px;
+}
+.user-title-area, .upload-title-area{
+    /* border-bottom: 1px solid; */
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+img{
+    width: 50px;
+    height: 50px;
+}
+#img-area{
+    float: left;
+    height: 100%;
+}
+.img-area{
+    float: left;
+    height: 100%;
+    margin-top: 18%;
+}
+.user-content-area{
+    float: left;
+    height: 100%;
+    margin-top: 18%;
+    
+}
+.value-area{
+    float: left;
+    width: 50%;
+}
+.value-area-2{
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+}
+.value{
+    font-size: 50px;
+    color: black;
+}
+h2{
+    color: gray;
+}
+#upload-title-row{
+    margin-top: 3%;
+}
+/* .user-content-title{
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 10%;
+    margin-top:5%;
+}
+.upload-content-title{
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 10%;
+    margin-top:5%;
+} */

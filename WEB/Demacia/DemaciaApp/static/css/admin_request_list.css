@@ -1,0 +1,52 @@
+#container{
+    font-family: "Poppins", sans-serif;
+}
+.table-title{
+    text-align: center;
+    margin-bottom: 20px;
+}
+#table-row-content{
+    width: 85%;
+    margin: 0 auto;
+}
+.paging_area{
+    text-align: center;
+    font-size: 20px;
+}
+.table td{
+    vertical-align: middle;
+}
+#table-area{
+    border-radius: 15px 15px 15px 15px;
+    box-shadow: 0px 0px 4px 1px grey;
+}
+/* #table-head th{
+    background-color: #99b4ff;
+} */
+#table-body tr td::-webkit-scrollbar{
+    display: none;
+}
+#table-body tr{
+    height: 7vh;
+}
+#table-body tr td{
+    overflow-x: scroll;
+}
+#table-body tr{
+    background-color: white;
+    border-top: inset;
+    -webkit-transition: background-color 1s;
+    transition: background-color 1s;
+}
+#table-body tr:hover{
+    background-color: #c7c9cc;
+}
+/* #table-body tr:nth-child(odd){
+    background-color: rgb(194, 194, 194);
+} */
+a:hover{
+    font-weight: bold;
+}
+button{
+    font-weight: 500;
+}

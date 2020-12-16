@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>교통 정보</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Bootstrap News Template - Free HTML Templates" name="keywords">
+        <meta content="Bootstrap News Template - Free HTML Templates" name="description">
+        <meta http-equiv="content-script-type" content="text/javascript">
+        
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="../static/lib/slick/slick.css" rel="stylesheet">
+        <link href="../static/lib/slick/slick-theme.css" rel="stylesheet">
+
+            <!-- Template Stylesheet -->
+        <link href="../static/css/style.css?ver=2" rel="stylesheet">
+        <link href="../static/css/style2.css?ver=1" rel="stylesheet">  
+        <link href="../static/css/my_set.css?ver=4" rel="stylesheet">
+        <link href="../static/css/video.css" rel="stylesheet">
+
+          <!-- Video.js -->
+        <link href="https://vjs.zencdn.net/7.8.4/video-js.css" rel="stylesheet" />
+        <!-- Favicon -->
+
+        <link href="../static/img/favicon/Future_Perfect_Demacialogo_square.png" rel="icon">
+
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap" rel="stylesheet"> 
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+        <!-- Vendor CSS Files -->
+        <link href="../static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../static/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+        <link href="../static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+        <link href="../static/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href="../static/assets/vendor/venobox/venobox.css" rel="stylesheet">
+        <link href="../static/assets/vendor/aos/aos.css" rel="stylesheet">
+
+        <!-- Template Main CSS File -->
+        <link href="../static/assets/css/style.css?ver=3" rel="stylesheet">
+
+        <!-- video.js-->
+        <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.8.1/video-js.min.css" rel="stylesheet"> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.8.1/video.min.js"></script>
+
+
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="../static/lib/easing/easing.min.js"></script>
+        <script src="../static/lib/slick/slick.min.js"></script>
+        <!-- Template Javascript -->   
+        <script src="../static/js/main.js"></script>
+        <!-- 데이터 ajax -->
+        <script src="../static/js/traffic.js?ver=13"></script>
+
+        <!-- chart.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
+        {% comment %} <script src="../static/js/chart_test.js?ver=4"></script> {% endcomment %}
+
+    </head>
+    
+    <style>
+        canvas{
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+    </style>
+
+    <body>
+        {% include "header_BizLand.html" %}
+
+
+        <!-- Top News Start-->
+        <div class="top-news tab-content" style="margin-top: 15%; margin-bottom: 0;">
+
+            <div class="container">
+                <div class="row" id="row-title">
+                    <div class="col-md-12 row col-xs-12" id="title_area">
+                        <div class="col-md-6 col-xs-6 tn-left">
+                            <h2>서울광장</h2>
+                        </div>
+                        <div class="col-md-6 col-xs-6 tn-left">
+                            <h2>청계6가</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="list-area">
+                        <div class="list-group">
+                            <ul class="nav nav-pills nav-fill nav-tabs" id="myTabs">
+                                <li class="nav-item active" >
+                                    <a href="#tab1" class="nav-link active" data-toggle="tab" id="a1" onclick="click_func(0);">주간</a>
+                                </li>
+                                <li  class="nav-item">
+                                    <a href="#tab1"class="nav-link" data-toggle="tab" id="a2"  onclick="click_func(1);">야간</a>
+                                </li>
+                                <li  class="nav-item">
+                                    <a href="#tab1"class="nav-link" data-toggle="tab" id="a3"  onclick="click_func(2);">주간</a>
+                                </li>
+                                <li  class="nav-item">
+                                    <a href="#tab1"class="nav-link" data-toggle="tab" id="a4"  onclick="click_func(3);">야간</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row " >
+                    <div class="col-md-12 row col-xs-12" style="@media (min-width: 1500px)">
+                        <div class="col-md-6 col-xs-6 tn-left">
+                            <div class="tn-img">
+                                <video
+                                    id="livestation-player1"
+                                    class="video-js vjs-default-skin"
+                                    preload="auto"
+                                    data-setup='{}'
+                                    width="600"
+                                    height="400"
+                                    autoplay="true"
+                                    loop
+                                    muted
+                                    playsline
+                                    controlslist="nodownload">
+                                    <source id="video1" src="https://demacia-s3-second.s3-us-west-1.amazonaws.com/real_video/video/Seoul_Plaza_2020_11_25_14_54_28.mp4" type="video/mp4"/> 
+                                </video>
+                            </div>
+                        </div>
+                        
+                        <div id="table_area" class="col-md-6 col-xs-6 table_area table-responsive" style="margin-top: 30px;height: 340px;">
+                            <table id="table" class="table" style="height:93%;">
+                                <thead class="thead-dark">
+                                    <tr class = "value_table" style="height:40px;">
+                                        <th scope="col">Direction1</th>
+                                        <th scope="col">Direction2</th>
+                                        <th scope="col">Bus</th>
+                                        <th scope="col">Car</th>
+                                        <th scope="col">Truck</th>
+                                        <th scope="col">Total</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="call_ajax" >
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row " >
+                    <div class="row col-md-12 col-xs-12">
+                        <div class="col-md-6 col-xs-6 tn-left">
+                        
+                            <div class="tn-img">
+                            <video
+                                    id="livestation-player2"
+                                    class="video-js vjs-default-skin"
+                                    preload="auto"
+                                    data-setup='{}'
+                                    width="600"
+                                    height="400"
+                                    autoplay="true"
+                                    loop
+                                    muted
+                                    playsline
+                                    controlslist="nodownload">
+                                    <source id="video2"src="https://demacia-s3-second.s3-us-west-1.amazonaws.com/real_video/converted_video/Convert_Seoul_Plaza_morning.mp4" type="video/mp4"/>
+                                </video>
+                            </div>
+                        </div>
+                        
+                     {% comment %} <div class="col-md-4 col-xs-4 tn-left" id="call_ajax" style="width:50%;" > {% endcomment %}
+                     <div class="col-md-4 col-xs-4 tn-left" id="call_chart_ajax" style="width:50%;" >
+                        <div class="chart_area" style="width:100%;height:100%;">
+                            <canvas id="canvas"></canvas>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <script src="../static/js/chart_test.js?ver=27"></script>
+    </div>
+
+        <!-- Top News End-->
+
+<!-- Video.js -->
+<script src="https://vjs.zencdn.net/7.8.4/video.js"></script>
+
+<!-- ====================================================================================== -->
+
+        {% include "footer_BizLand.html"%}
+
+        <!-- Back to Top -->
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+
+    </body>
+</html>

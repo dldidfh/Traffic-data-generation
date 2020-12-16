@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+        <title>선그리기</title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="../static/js/validation.js"></script>
+       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <style>
+#c {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+#video {
+    position: relative;
+    z-index: 1;
+}
+        </style>
+        <script type="text/javascript">
+            var line_list = [];
+            var canvas, video,context;
+            var file_name;
+            
+        function onload_1(){
+            file_name = document.getElementById('file_name').value;            
+            canvas = document.getElementById('c');
+            video = document.getElementById('video');
+            var video_width = document.getElementById('video').clientWidth;
+            var video_height = document.getElementById('video').clientHeight;
+            // canvas.style.width=;
+            // console.log(video_width,video_height);
+            canvas.width = video_width;
+            canvas.height = video_height;
+            // canvas.style.height=;
+            context = canvas.getContext('2d');
+            
+            context.strokeStyle='blue';
+            context.lineWidth=1;
+            context.lineCap = 'round';
+
+            canvas.addEventListener("mousedown",function(e){ down(e) }, false) // 마우스가 눌러질 때
+            canvas.addEventListener("mouseup",function(e){ up(e) }, false) // 눌러진 마우스가 놓여질 때
+            canvas.addEventListener("mousemove",function(e){ move(e) }, false) // 마우스를 움직이는 동안 
+            canvas.addEventListener("mouseout",function(e){ out(e) }, false) // 마우스가 캔버스 영역을 벗어나는 경우
+            var startX = 0;
+            var startY = 0;
+            var line_list_startX = 0;
+            var line_list_startY = 0;
+            var drawing = false;
+
+            function down(e){
+                line_list_startX = e.offsetX;
+                line_list_startY = e.offsetY;
+                startX=canvasX(e.offsetX);
+                startY=canvasY(e.offsetY);                
+                drawing=true;
+                context.beginPath();
+                context.moveTo(startX,startY);
+            }
+            function draw(x,y){
+                // context.lineTo(x,y);
+                // context.stroke();
+            }
+            function move(e){
+                // if(drawing == false) return;
+                // var curX = canvasX(e.offsetX);
+                // var curY = canvasX(e.offsetY);
+                
+            }
+            function up(e){                
+                var curX = canvasX(e.offsetX);
+                var curY = canvasY(e.offsetY);
+                line_list.push([line_list_startX,line_list_startY,e.offsetX,e.offsetY])
+                context.lineTo(curX,curY);                
+                context.stroke();                
+                drawing =false; 
+                 
+            }
+            function out(e){
+                drawing = false;
+            }
+            function canvasX(clientX) {
+                var bound = canvas.getBoundingClientRect();
+                var bw = 5;
+                return (clientX - bound.left - bw) * (canvas.width / (bound.width - bw * 2));
+            }
+            function canvasY(clientY) {
+                var bound = canvas.getBoundingClientRect();
+                var bw = 5;
+                return (clientY - bound.top - bw) * (canvas.height / (bound.height - bw * 2));
+            }
+            
+        }
+        function sava_button_click(){  
+            var line_data = line_list;
+            var param = {
+                'file_name': file_name,
+                'line_list': line_data
+            };
+            console.log(param['line_list']);
+            if(line_list ==[]){
+                alert('선을 그린 후 저장버튼을 클릭해 주세요!')
+            }
+            else{
+                if(confirm('분석을 진행하시겠습니까?')){
+                    $.ajax({
+                        cache : false,
+                        url: "../video_analysis_progress/",
+                        contentType : "application/x-www-form-urlencoded; charset=UTF-8",
+                        traditional : true,
+                        type: "POST",  
+                        dataType: 'json',
+                        data : param,
+                        success:function(data){
+                            if(data == '성공'){
+                                alert("분석 신청 완료");
+                                self.close();
+                            }
+                            else{
+                                alert("실패"); 
+                                self.close();
+                            }
+                        },
+                        error: function(data){
+                            alert("Error");
+                            self.close();
+                        }
+                    })
+                }
+            }              
+        }
+        function remove_all(){
+            context.clearRect(0,0,canvas.width,canvas.height);
+            line_list = [];
+        }
+        
+        </script>
+        
+    </head>
+<body onload="onload_1()">
+    <div>
+        <div>
+            <canvas style="margin-top: 0.5%;margin-left: 0.5%;" id='c'></canvas>
+            <video id='video'>
+                <source src="https://demacia-s3-second.s3-us-west-1.amazonaws.com/{{file_name}}" type="video/mp4" loop controls autoplay>
+                {% comment %} <source src="../static/video/main_video.mp4#t=0.5" type="video/mp4"> {% endcomment %}
+            </video>
+        </div>
+        <div style="position: relative; z-index: 3;">
+            <!-- <form onsubmit="sava_button_click();">
+                {% csrf_token %} -->
+                <button id='clear' class="btn btn-secondary" onclick="remove_all()">전부지우기</button>
+                <input type="button" id="btn" class="btn btn-secondary" value="저장 후 분석 진행" onclick="sava_button_click()">
+                <input type="button" value="닫기" class="btn btn-secondary" onclick="self.close();">
+                <input type="hidden" value="{{file_name}}" id="file_name">
+            <!-- </form> -->
+            
+        </div>
+        
+    </div>
+    
+</body>
+</html>

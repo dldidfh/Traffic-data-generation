@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Demacia</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Bootstrap News Template - Free HTML Templates" name="keywords">
+        <meta content="Bootstrap News Template - Free HTML Templates" name="description">
+
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="../static/lib/easing/easing.min.js"></script>
+        <script src="../static/lib/slick/slick.min.js"></script>
+
+
+        <!-- Favicon -->
+        <link href="../static/img/favicon/Future_Perfect_Demacialogo_square.png" rel="icon">
+
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap" rel="stylesheet"> 
+
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css"  href="../static/lib/slick/slick.css">
+        <link rel="stylesheet" type="text/css" href="../static/lib/slick/slick-theme.css">
+
+        <!-- Template Stylesheet -->  
+        <link href="../static/css/style.css?ver=1" rel="stylesheet">      
+        <link href="../static/css/style2.css" rel="stylesheet">  
+        <link href="../static/css/video.css" rel="stylesheet">    
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+        <!-- Vendor CSS Files -->
+        <link href="../static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../static/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+        <link href="../static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+        <link href="../static/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href="../static/assets/vendor/venobox/venobox.css" rel="stylesheet">
+        <link href="../static/assets/vendor/aos/aos.css" rel="stylesheet">
+
+        <!-- Template Main CSS File -->
+        <link href="../static/assets/css/style.css" rel="stylesheet">
+
+        <link href="../static/css/admin_home.css?ver=14" rel="stylesheet">
+
+    </head>
+    <body>
+        {% include "header_BizLand.html" %} 
+        <div class="container" id="container" style="margin-top: 10%; margin-bottom: 8%;">
+            <div class="content-area">
+                <div class="row">
+                    <div class="user-title-area">
+                        <h2>사용자</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 row col-xs-12" id="">
+                        
+                        <div class="col-md-3 row col-xs-3 user-content">
+                              <div class="col-md-4 col-xs-4 img-area">
+                                <img src="../static/img/admin_icon/total.png">
+                            </div>
+                            <div class="col-md-8 col-xs-8 user-content-area">
+                                <div class="value-area-2">
+                                    <span>{{ data.user_all_count }}명</span>
+                                </div>
+                                <div class="user-content-title">
+                                    <span>Total User</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-xs-3 user-content">
+                            <div class="col-md-4 col-xs-4 img-area">
+                                <img src="../static/img/admin_icon/top.png">
+                            </div>
+                            <div class="col-md-8 col-xs-8 user-content-area">
+                                <div class="value-area-2">
+                                    <span>{{ data.most_req_user }}</span>
+                                </div>
+                                <div class="user-content-title">
+                                    <span>Most Request User</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-xs-3 user-content">
+                            <div class="col-md-4 col-xs-4 img-area">
+                                    <img src="../static/img/admin_icon/request.png">
+                                </div>
+                                <div class="col-md-8 col-xs-8 user-content-area">
+                                    <div class="value-area-2">
+                                        <span>{{ data.most_req_user_count }}번</span>
+                                    </div>
+                                    <div class="user-content-title">
+                                        <span>Request Count</span>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>  <!-- end row-->
+
+                
+                <div class="row" id="upload-title-row">
+                    <div class="upload-title-area">
+                        <h2>업로드</h2>
+                    </div>
+                </div> <!-- end row-->
+
+                <div class="row">
+                    <div class="col-md-12 row col-xs-12" id="">
+
+                        <div class="col-md-3 col-xs-3 upload-content">
+                            <div class="col-md-4 col-xs-4 img-area">
+                                <img src="../static/img/admin_icon/total.png">
+                            </div>
+                            <div class="col-md-8 col-xs-8 user-content-area">
+                                <div class="value-area-2">
+                                    <span>{{ data.video_all_count }}번</span>
+                                </div>
+                                <div class="upload-content-title">
+                                    <span>Total Request</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-3 col-xs-3 upload-content">
+                             <div class="col-md-4 col-xs-4 img-area">
+                                <img src="../static/img/admin_icon/complete2.png">
+                            </div>
+                            <div class="col-md-8 col-xs-8 user-content-area">
+                                <div class="value-area-2">
+                                    <span>{{ data.video_true_count }}개</span>
+                                </div>
+                                <div class="upload-content-title">
+                                    <span>Complete Analysis</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-xs-3 upload-content">
+                            <div class="col-md-4 col-xs-4 img-area">
+                                <img src="../static/img/admin_icon/complete3.png">
+                            </div>
+                            <div class="col-md-8 col-xs-8 user-content-area">
+                                <div class="value-area-2">
+                                    <span>{{ data.video_true_count }}개</span>
+                                </div>
+                                <div class="upload-content-title">
+                                    <span>Incomplete Analysis</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- end row-->
+
+            </div>
+        </div>
+            {% comment %} <div class="row">
+                <div class="col-md-6 col-lg-12 col-sm-12">
+                    <table class='table table-striped'>
+                        <h1>사용자</h1><br><br>
+                        <thead class="thead-dark">
+                            <tr class="title">
+                                <th scope="col">총 사용자</th>
+                                <th scope="col">가장 요청이 많은 사용자</th>
+                                <th scope="col">요청 횟수</th>
+                            </tr>
+                        </thread>
+                        <tbody>
+                            <tr>
+                                <td>{{ data.user_all_count }}</td>
+                                <td>{{ data.most_req_user }}</td>
+                                <td>{{ data.most_req_user_count}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-6 col-lg-12 col-sm-12">
+                    <table class='table table-striped'>
+                        <h1>업로드 영상</h1><br><br>
+                        <thead class="thead-dark">
+                            <tr class="title">
+                                <th scope="col">총 요청 수</th>
+                                <th scope="col">분석 완료된 비디오 개수</th>
+                                <th scope="col">분석 미완료 비디오 개수</th>
+                            </tr>
+                        </thread>
+                        <tbody>
+                            <tr>
+                                <td>{{ data.video_all_count }}</td>
+                                <td>{{ data.video_true_count  }}</td>
+                                <td>{{ data.video_false_count  }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>             {% endcomment %}
+        {% comment %} </div> {% endcomment %}
+        {% include "footer_BizLand.html"%} 
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+        <script src="../static/js/main.js"></script>
+    </body>
+</html>

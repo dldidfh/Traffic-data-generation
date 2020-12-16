@@ -1,0 +1,40 @@
+#container{
+    font-family: "Poppins", sans-serif;
+}
+#left-content-area{
+    background-image: url("../img/backgroundimg/analysis.jpg");
+    /* opacity: 0.7; */
+    background-position: center center;
+    border-radius: 10px 0px 0px 10px;
+}
+#content-col-area{
+    height: 50vh;
+}
+#content-row-area{
+    width: 75%;
+    margin: 0 auto;
+    box-shadow: 1px 0px 4px 1px grey;
+    border-radius: 10px 10px 10px 10px;
+}
+.title{
+    text-align: center;
+}
+.right-content{
+    margin-top: 20%;
+}
+.title-body{
+    margin-top: 20px;
+}
+#right-content-area{
+    padding-left: 5%;
+    padding-right: 5%;
+}
+#analysis-button{
+    font-weight: bold;
+    -webkit-transition: background 1s;
+    transition: background 1s;
+}
+#analysis-button:hover{
+    background: #56baed;
+    border: 1px solid #56baed;
+}

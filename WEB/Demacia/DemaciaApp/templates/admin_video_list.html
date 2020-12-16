@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>요청 리스트</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Bootstrap News Template - Free HTML Templates" name="keywords">
+        <meta content="Bootstrap News Template - Free HTML Templates" name="description">
+
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="../static/lib/easing/easing.min.js"></script>
+        <script src="../static/lib/slick/slick.min.js"></script>
+
+
+        <!-- Favicon -->
+        <link href="../static/img/favicon/Future_Perfect_Demacialogo_square.png" rel="icon">
+
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap" rel="stylesheet"> 
+
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css"  href="../static/lib/slick/slick.css">
+        <link rel="stylesheet" type="text/css" href="../static/lib/slick/slick-theme.css">
+
+        <!-- Template Stylesheet -->  
+        <link href="../static/css/style.css?ver=1" rel="stylesheet">      
+        <link href="../static/css/style2.css" rel="stylesheet">  
+        <link href="../static/css/video.css" rel="stylesheet">   
+        <link href="../static/css/admin_request_list.css?ver=3" rel="stylesheet">   
+        <script src="../static/js/validation.js"></script> 
+        <script>
+            function video_analysis(file_name){               
+                var url = "../image_popup/";
+                var name = 'image_popup';
+                var window_width = window.screen.width;
+                var window_height = window.screen.height;
+                console.log(window_width);
+                console.log(window_height);
+                var popupX = (window_width/2) - (1300/2);
+                var popupY = (window_height/2) - (900/2) ;
+                window.open('',name,'width=1300,height=900,scrollbars=no,location=yes,toolbars=no,menubar=yes,left='+popupX+',top='+popupY);  
+                //window.open('',name,'width=1300,height=900');
+                file_name.target = name;  
+                file_name.action = url;
+                file_name.method='post';
+                file_name.submit();
+            };
+         </script>
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+        <!-- Vendor CSS Files -->
+        <link href="../static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../static/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+        <link href="../static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+        <link href="../static/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href="../static/assets/vendor/venobox/venobox.css" rel="stylesheet">
+        <link href="../static/assets/vendor/aos/aos.css" rel="stylesheet">
+
+        <!-- Template Main CSS File -->
+        <link href="../static/assets/css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        {% include "header_BizLand.html" %} 
+        <div class="container" style="margin-top: 15%; margin-bottom: 8%;">
+            <div class="row" id="table-row-content">
+                <div class="table-title">
+                    <h1>분석 요청 리스트</h1>
+                </div>
+                
+                <table class='table text-center' id="table-area" style="table-layout:fixed;overflow:hidden;text-overflow:ellipsis;">
+                    <thead class="thead-dark" id="table-head">
+                        <tr class="title">
+                            <th scope="col" style="width: 20%;">요청 날짜</th>
+                            <th scope="col" style="width: 10%;">아이디</th>
+                            <th scope="col" style="width: 30%;">파일명</th>
+                            <th scope="col" style="width: 10%;">상태</th>
+                            <th scope="col" style="width: 10%;">분석하기</th>
+                        </tr>
+                    </thread>
+                    <tbody id = "table-body">
+                    {% for data in posts %}
+                        <tr>
+                            <td >{{ data.uploaded_time }}</td>
+                            <td>{{ data.user_id }}</td>
+                            <td>{{ data.upload_file }}</td>
+                            {% if data.state == 0 %}
+                            <td>진행중 </td>
+                            {% elif data.state == 1%}
+                            <td>분석시작</td>
+                            {% else%}
+                            <td>완료</td> 
+                            {% endif %}
+                            {% if data.state == 0%}
+                            <td>
+                                <form name='form'>
+                                    {% csrf_token %}
+                                    <input type="hidden" name='file_name' value="{{data.upload_file}}">
+                                    <input type="button" name="btn1" class="btn btn-danger" value="선그리기" onclick="javascript:video_analysis(this.form);">
+                                </form>
+                                <!-- <button onclick="video_analysis( '{{ data.upload_file }}' )">선그리기</button> -->
+                            </td>
+                            {% else %}
+                            <td><input type="button" class="btn btn-danger" value="선그리기" disabled='disabled'></td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <div class = "paging_area">
+                    <a href="?page=1"><img src="../static/img/page_pprev.jpg"/></a>&nbsp;
+                    {% if posts.has_previous %}
+                    <a href="?page={{posts.previous_page_number}}"><img src="../static/img/page_prev.jpg"/></a>
+                    {% endif %}
+                    &nbsp;
+                    <span>{{posts.number}}</span>
+                    <span>&nbsp; / &nbsp;</span>
+                    <span>{{posts.paginator.num_pages}}</span>
+                    &nbsp;
+                    {% if posts.has_next %}
+                    <a href="?page={{posts.next_page_number}}"><img src="../static/img/page_next.jpg"/></a>&nbsp;
+                    {% endif %}
+                    <a href="?page={{posts.paginator.num_pages}}"><img src="../static/img/page_nnext.jpg"/></a>
+                </div>
+            </div>
+        </div>
+        {% include "footer_BizLand.html"%} 
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+        <script src="../static/js/main.js"></script>
+    </body>
+</html>
