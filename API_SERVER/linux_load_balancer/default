@@ -1,0 +1,15 @@
+upstream myserver{
+	server 49.50.165.14:80;
+	server 27.96.130.138:80;
+	server 101.101.217.200:8080;
+	keepalive 100;    # keepalive 로 유지시키는 최대 커넥션 개수
+}
+
+server {
+	listen 80;
+	listen 443 ssl;
+
+	location / {
+		proxy_pass http://myserver;
+	}
+}
