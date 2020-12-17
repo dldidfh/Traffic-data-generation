@@ -19,7 +19,7 @@
 
 3. sudo vi default 명령어로 파일 생성 후 아래와 같이 작성
 
-'''
+```
 upstream myserver{
         server 49.50.165.14:80;
         server 27.96.130.138:80;
@@ -35,8 +35,7 @@ server {
                 proxy_pass http://myserver;
         }
 }
-
-'''
+```
 
 이렇게 단순하게 처리하면 라운드 로빈 방식으로 로드 밸런싱 작동.
 
@@ -48,16 +47,16 @@ upstream myserver 안에 적어주는 서버 리스트들은 원하는 서버들
 
 이후에 재부팅 후에도 돌아갈 수 있게 systemctl로 등록해준다.
 
-'''
+```
 sudo systemctl daemon-reload
 sudo systemctl enable nginx
 sudo systemctl start nginx
-'''
+```
 
 잘 돌아가는지 확인하고 싶을 땐
 
-'''
+```
 sudo systemctl status nginx
-'''
+```
 
 명령어로 active 상태인지 확인하면 된다.
