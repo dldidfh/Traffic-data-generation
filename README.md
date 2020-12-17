@@ -6,3 +6,8 @@
     4. python object_tracker.py --video ./data/video/'test'.mp4 --output ./outputs/'demo'.avi --model yolov4
     *이렇게 하면 분석 영상 파일명 : 'test', 최종 분석 파일명 : 'demo'*
     5. 'count', 'location' 플래그를 사용하여 원하는 기능 추가 가능
+
+## YOLO v4 사용 방법
+
+[바로가기](https://gitlab.com/seoungjun_kim/test1)
+
