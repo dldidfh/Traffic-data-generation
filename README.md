@@ -7,13 +7,28 @@
     *이렇게 하면 분석 영상 파일명 : 'test', 최종 분석 파일명 : 'demo'*
     5. 'count', 'location' 플래그를 사용하여 원하는 기능 추가 가능
 
+
 ### 우리가 생성한 가중치
 
 [다운로드](https://drive.google.com/file/d/1gFMK0r-rlmKSSlaiUJCNvuK5Sy7nYHCL/view?usp=sharing)
 
+
 ## YOLO v4 사용 방법
 
 [바로가기](https://gitlab.com/seoungjun_kim/test1)
+
+
+## 웹 구동하는 방법
+
+    1. mysql.cnf 파일 생성 - django 프로젝트 최상위 폴더에 생성 (host, database, password, user)
+    2. settings.py - AWS setting 계정 정보 수정
+    3. view.py - 다른 서버와 통신하는 부분 IP 자신의 환경에 맞게 수정
+    4. python manage.py runserver ~.~.~.~:포트번호 입력하여 서버 구동 시작
+    
+웹 구동에 필요한 자료는 바로 이 깃허브에 다 있습니다.
+
+*중간중간 없다고 설치가 되어 있지 않은 패키지들은 패키지명이 에러 메시지에 같이 나오니까 패키지들을 설치하시면 됩니다.*
+
 
 ## Ubuntu + Nginx 로 로드밸런싱 구현한 방법
 
@@ -70,7 +85,7 @@ sudo systemctl status nginx
 <img width="522" alt="2" src="https://user-images.githubusercontent.com/67957934/102457081-84562c00-4085-11eb-99ff-2ee7748b2116.png">
 
 
-## EC2 새로 만들 떄(+ 재시작시) 자동으로 서버 구동하게 설정하는 방법
+## EC2 새로 만들 때(+ 재시작시) 자동으로 서버 구동하게 설정하는 방법
 
 EC2 생성 시작 템플릿 - 고급 세부 정보 - 사용자 데이터에 아래와 같은 코드를 추가한다.
 
@@ -87,7 +102,7 @@ sudo python3.8 /home/ec2-user/Demacia/manage.py runserver 0.0.0.0:8000
 
 여기에 필요한 runserver.service 와 runserver.sh 는
 
-[runserver 관련 깃허브 위치]()
+[runserver 관련 깃허브 위치](https://github.com/dldidfh/Traffic-data-generation/tree/master/WEB)
 
 이후에 EC2 접속 후 잘 돌아가고 있는지 확인하고 싶을 때는
 
