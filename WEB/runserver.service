@@ -1,0 +1,18 @@
+#!/bin/bash
+[Unit]
+Description=Automatically Run Server After Booting
+After=syslog.target
+
+[Service]
+Type=simple
+
+ExecStart=/home/ec2-user/runserver.sh
+
+User=ec2-user
+Group=ec2-user
+UMask=0007
+RestartSec=10
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
