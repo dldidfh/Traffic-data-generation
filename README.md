@@ -17,6 +17,23 @@
 
 [바로가기](https://gitlab.com/seoungjun_kim/test1)
 
+## 카운팅 할 때 주의 사항
+
+패키지 설치를 잘 해주세요.
+
+[requirements.txt 파일 다운로드](https://drive.google.com/file/d/1maTH1Q2-RwASkoss6nzZ-ay_ozG7n6d0/view?usp=sharing)
+
+requirements.txt 파일을 다운받으신 후 작업하실 폴더에 넣어주세요.
+
+이후에 아나콘다 프롬프트에서
+
+```
+pip install -r requirements.txt
+```
+
+명령어를 사용하시면 목록에 적혀있는 패키지들(구동 성공한 환경의 패키지들)이 자동으로 설치됩니다.
+
+구동 성공한 환경의 CUDA 버전 : 10.1 CUDNN 버전 : 7.6.1
 
 ## 웹 구동하는 방법
 
