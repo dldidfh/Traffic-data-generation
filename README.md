@@ -21,7 +21,7 @@
 
 패키지 설치를 잘 해주세요.
 
-[requirements.txt 파일 다운로드](https://drive.google.com/file/d/1maTH1Q2-RwASkoss6nzZ-ay_ozG7n6d0/view?usp=sharing)
+[requirements.txt 파일 다운로드](https://drive.google.com/file/d/1wXhJYVp609jp_NiWXtQW_7wiRK7acvs2/view?usp=sharing)
 
 requirements.txt 파일을 다운받으신 후 작업하실 폴더에 넣어주세요.
 
